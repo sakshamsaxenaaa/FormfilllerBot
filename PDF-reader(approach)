@@ -1,0 +1,26 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+
+public class PdfReader {
+
+	public static void main(String[] args) throws IOException {
+		// Get the PDF file to read
+		File pdfFile = new File("example.pdf");
+
+
+		// Create a new PDF document object
+		PDDocument document = PDDocument.load(pdfFile);
+
+		// Get the number of pages in the PDF file
+		int numPages = document.getNumberOfPages();
+
+		// Print the text on each page of the PDF file
+		for (int i = 0; i < numPages; i++) {
+			System.out.println(document.getPage(i).getText());
+		}
+
+	}
+}
