@@ -1,0 +1,58 @@
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+public class AutoFormFillerBot {
+	public static void main(String[] args) {
+		// set the chrome driver path
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver.exe");
+		// create a new instance of chrome driver
+		WebDriver driver = new ChromeDriver();
+		// maximize the window
+		driver.manage().window().maximize();
+		// navigate to the url
+		driver.get("https://www.dreamit.com/getstarted");
+		// wait for 5 seconds for the page to load
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		// find the email field and enter the email address
+		WebElement emailField = driver.findElement(By.xpath("//input[@id='email']"));
+		emailField.sendKeys("your_email_address");
+		// find the first name field and enter the first name
+		WebElement firstNameField = driver.findElement(By.xpath("//input[@id='firstName']"));
+		firstNameField.sendKeys("your_first_name");
+		// find the last name field and enter the last name
+		WebElement lastNameField = driver.findElement(By.xpath("//input[@id='lastName']"));
+		lastNameField.sendKeys("your_last_name");
+		// find the phone number field and enter the phone number
+		WebElement phoneNumberField = driver.findElement(By.xpath("//input[@id='phone']"));
+		phoneNumberField.sendKeys("your_phone_number");
+		// find the country dropdown and select the country
+		WebElement countryDropdown = driver.findElement(By.xpath("//select[@id='country']"));
+		Select countrySelect = new Select(countryDropdown);
+		countrySelect.selectByValue("selectByVisibleText("your_country");
+		// find the state dropdown and select the state
+		WebElement stateDropdown = driver.findElement(By.xpath("//select[@id='state']"));
+		Select stateSelect = new Select(stateDropdown);
+		stateSelect.selectByVisibleText("your_state");
+		// find the city field and enter the city
+		WebElement cityField = driver.findElement(By.xpath("//input[@id='city']"));
+		cityField.sendKeys("your_city");
+		// find the zip code field and enter the zip code
+		WebElement zipCodeField = driver.findElement(By.xpath("//input[@id='zip']"));
+		zipCodeField.sendKeys("your_zip_code");
+		// find the address field and enter the address
+		WebElement addressField = driver.findElement(By.xpath("//input[@id='address']"));
+		addressField.sendKeys("your_address");
+		// find the submit button and click it
+		WebElement submitButton = driver.findElement(By.xpath("//button[@type='submit']"));
+		submitButton.click();
+		// close the browser window
+		driver.quit();
+	}
+}
